@@ -19,8 +19,13 @@ const UserProvider = ({ children }) => {
       setError(null); // Clear any previous errors
     } catch (err) {
       console.error("Failed to fetch user profile:", err);
-      setUser(null); // Clear user data on error
-      setError(err); // Store the error
+      setUser(null);
+      setError(err);
+
+      if (err.response && err.response.status === 401) {
+        localStorage.removeItem("token");
+        window.location.href = "/login"; // your login route
+      }
     } finally {
       setLoading(false);
     }
