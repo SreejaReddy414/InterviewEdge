@@ -131,7 +131,7 @@ const CreateSessionForm = ({ onClose }) => {
 
           <div>
             <label className="text-sm font-medium text-gray-700">
-              Additional Notes (Optional)
+              Additional Notes
             </label>
             <textarea
               name="description"
